@@ -9,8 +9,7 @@ const start = document.querySelector('[data-ns-test="play-game"]');
 const result = document.querySelector('[data-ns-test="game-result"]');
 const rResult = document.querySelector('[data-ns-test="rount-result"]');
 start.addEventListener("click", () => {
-	result.textContent="";
-	rResult.textContent="";
+	
   solve(Number(round.value));
 });
 function solve(ans) {
