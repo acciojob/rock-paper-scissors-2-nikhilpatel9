@@ -9,6 +9,8 @@ const start = document.querySelector('[data-ns-test="play-game"]');
 const result = document.querySelector('[data-ns-test="game-result"]');
 const rResult = document.querySelector('[data-ns-test="rount-result"]');
 start.addEventListener("click", () => {
+	result.textContent="";
+	rResult.textContent="";
   solve(Number(round.value));
 });
 function solve(ans) {
@@ -21,14 +23,13 @@ function solve(ans) {
   roundLeft.textContent = ans;
   let rock = 0, paper = 0, scissors = 0;
 
-  function checkRound() {
+  function playTurn(choice) {
     if (ans <= 0) return;
     ans--;
     roundLeft.textContent = ans;
-
     let cumputer = CHOICES[setComputerChoice()];
     copChoice.textContent = cumputer;
-    if (rock == 1) {
+    if (choice === "ROCK") {
       if (cumputer == "PAPER") {
         compAns++;
         rResult.textContent = "LOSE";
@@ -39,7 +40,7 @@ function solve(ans) {
         rResult.textContent = "TIE";
       }
     }
-    if (paper == 1) {
+    if (choice === "PAPER") {
       if (cumputer == "ROCK") {
         userAns++;
         rResult.textContent = "WON";
@@ -50,7 +51,7 @@ function solve(ans) {
         rResult.textContent = "TIE";
       }
     }
-    if (scissors == 1) {
+    if (choice === "SCISSORS") {
       if (cumputer == "PAPER") {
         userAns++;
         rResult.textContent = "WON";
@@ -64,10 +65,8 @@ function solve(ans) {
     rock = 0;
     paper = 0;
     scissors = 0;
-
     userP.textContent = userAns;
     compP.textContent = compAns;
-
     if (ans == 0) {
       if (userAns > compAns) {
         result.textContent = "WON";
@@ -81,14 +80,14 @@ function solve(ans) {
 
   document.querySelector('[data-ns-test="rock"]').onclick = () => {
     rock++;
-    checkRound();
+    playTurn("ROCK");
   };
   document.querySelector('[data-ns-test="paper"]').onclick = () => {
     paper++;
-    checkRound();
+    playTurn("PAPER");
   };
   document.querySelector('[data-ns-test="scissors"]').onclick = () => {
     scissors++;
-    checkRound();
+    playTurn("SCISSORS");
   };
 }
