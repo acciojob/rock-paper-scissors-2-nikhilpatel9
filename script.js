@@ -12,9 +12,9 @@ const result = document.querySelector('[data-ns-test="game-result"]');
 const rResult = document.querySelector('[data-ns-test="round-result"]');
 
 const copChoice = document.querySelector('[data-ns-test="computer-choose"]');
-const roundLeft = document.querySelector('[data-ns-test="round-left"]');
-const userP = document.querySelector('[data-ns-test="user-point"]');
-const compP = document.querySelector('[data-ns-test="computer-point"]');
+const roundLeft = document.querySelector('[data-ns-test="rounds-left"]');
+const userP = document.querySelector('[data-ns-test="user-points"]');
+const compP = document.querySelector('[data-ns-test="computer-points"]');
 
 const rockBtn = document.querySelector('[data-ns-test="rock"]');
 const paperBtn = document.querySelector('[data-ns-test="paper"]');
